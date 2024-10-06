@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>СДЕЛАЙ УЖЕ РАССЫЛКИ</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+      body {
+        font-family: "VT323", monospace;
+        background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+        color: #ff00ff;
+        font-size: 3em;
+        text-shadow: 2px 2px #00ffff, 4px 4px #ffff00;
+        margin-bottom: 20px;
+      }
+
+      .task {
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ff00ff;
+        padding-bottom: 10px;
+      }
+
+      .task label {
+        display: flex;
+        align-items: center;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+
+      .task input[type="checkbox"] {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .task input[type="checkbox"]:checked + span {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      .task p {
+        margin-top: 5px;
+        font-size: 0.9em;
+        color: #555;
+        margin-left: 30px;
+      }
+
+      @keyframes neon {
+        0%,
+        100% {
+          text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de, 0 0 20px #ff00de;
+        }
+        50% {
+          text-shadow: 0 0 10px #ff00de, 0 0 10px #ff00de, 0 0 10px #ff00de;
+        }
+      }
+
+      h1 {
+        animation: neon 1.5s infinite alternate;
+        font-size: 70px;
+      }
+
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: #f0f;
+        animation: confetti-fall 3s ease-out infinite;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>РАССЫЛКИ</h1>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Ставишь чаты из категории 3рд парти</span>
+        </label>
+        <p>
+          Выбери и настрой чаты из категории сторонних разработчиков для
+          расширения функциональности.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Пишешь байтовый летербот</span>
+        </label>
+        <p>
+          Создай привлекательное начало письма, чтобы пользователь
+          заинтересовался и открыл полное сообщение.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Ставишь серию ридов 3-5 штук</span>
+        </label>
+        <p>
+          Подготовь серию из 3-5 сообщений с интервалом 200-300. Они должны быть
+          как привлекательными, так и качественными, провоцирующими на ответ.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Ставим Серию на инбокс</span>
+        </label>
+        <p>
+          Настрой серию сообщений для входящих с опцией отправки онлайн
+          пользователям. Убедись, что сообщение не отпугнет новых пользователей.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>РУЧНАЯ ОБРАБОТКА КАЖДОГО ИНБОКСЕРА ОНЛАЙН</span>
+        </label>
+        <p>
+          Отправь 2-3 персонализированных сообщения каждому активному
+          пользователю во входящих. Избегай повторения личных тем между
+          получателями.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>РУЧНАЯ ОБРАБОТКА КАЖДОГО ФАВОРИТА ОНЛАЙН</span>
+        </label>
+        <p>
+          Отправь 2-3 персонализированных сообщения каждому активному фавориту.
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Поставить нормальные чаты</span>
+        </label>
+        <p>Настрой и активируй основные чаты, написанные тобой.</p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <span>Дополнительная обработка активных пользователей</span>
+        </label>
+        <p>
+          По желанию, дополнительно обработай пользователей, которые много
+          читают и сейчас онлайн. Возможно, им не хватает именно ручного
+          сообщения.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function celebrateCompletion(checkbox) {
+        if (checkbox.checked) {
+          for (let i = 0; i < 50; i++) {
+            createConfetti();
+          }
+        }
+      }
+
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+        confetti.style.backgroundColor = [
+          "#ff00ff",
+          "#00ffff",
+          "#ffff00",
+          "#ff0000",
+          "#0000ff",
+        ][Math.floor(Math.random() * 5)];
+        document.body.appendChild(confetti);
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
