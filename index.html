@@ -154,28 +154,7 @@
           БЫТЬ НЕ ДОЛЖНО
         </p>
       </div>
-      <div class="task">
-        <label>
-          <input type="checkbox" onchange="celebrateCompletion(this)" />
-          <span
-            >РУЧНАЯ ОБРАБОТКА КАЖДОГО ИНБОКСЕРА ОНЛАЙН 2-3 ПИСЬМА ПОДРЯД
-          </span>
-        </label>
-        <p>
-          НА ЕГО ЛИЧНЫЕ ТЕМЫ ЕСЛИ ЭТО ПОШЛАЯ ТЕМА, ТО ПИСЬМО НЕ ДОЛЖНО
-          ПОВТОРЯТСЯ МЕЖДУ ПОЛУЧАТЕЛЯМИ
-        </p>
-      </div>
-      <div class="task">
-        <label>
-          <input type="checkbox" onchange="celebrateCompletion(this)" />
-          <span
-            >РУЧНАЯ ОБРАБОТКА КАЖДОГО ФАВОРИТА ОНЛАЙН 2-3 ПИСЬМА ПОДРЯД</span
-          >
-        </label>
-        <p>АНАЛОГИЧНО С ИНБОКСОМ</p>
-      </div>
-      <div class="task">
+       <div class="task">
         <label>
           <input type="checkbox" onchange="celebrateCompletion(this)" />
           <span>Поставить нормальные чаты</span>
@@ -194,7 +173,29 @@
       </div>
       <div class="task">
         <label>
-          <input type="checkbox" onchange="celebrateCompletion(this)" />
+          <input type="checkbox" onchange="infiniteTask(this)" />
+          <span
+            >РУЧНАЯ ОБРАБОТКА КАЖДОГО ИНБОКСЕРА ОНЛАЙН 2-3 ПИСЬМА ПОДРЯД
+          </span>
+        </label>
+        <p>
+          НА ЕГО ЛИЧНЫЕ ТЕМЫ ЕСЛИ ЭТО ПОШЛАЯ ТЕМА, ТО ПИСЬМО НЕ ДОЛЖНО
+          ПОВТОРЯТСЯ МЕЖДУ ПОЛУЧАТЕЛЯМИ
+        </p>
+      </div>
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="infiniteTask(this)" />
+          <span
+            >РУЧНАЯ ОБРАБОТКА КАЖДОГО ФАВОРИТА ОНЛАЙН 2-3 ПИСЬМА ПОДРЯД</span
+          >
+        </label>
+        <p>АНАЛОГИЧНО С ИНБОКСОМ</p>
+      </div>
+     
+      <div class="task">
+        <label>
+          <input type="checkbox" onchange="infiniteTask(this)" />
           <span
             >(ПО ЖЕЛАНИЮ) Дополнительная обработка активных пользователей</span
           >
@@ -207,6 +208,12 @@
     </div>
 
     <script>
+    function infiniteTask(checkbox){
+      if(checkbox.checked){
+        alert("This task is not possible to complete");
+        checkbox.checked=false;
+      }
+    }
       function celebrateCompletion(checkbox) {
         if (checkbox.checked) {
           for (let i = 0; i < 50; i++) {
