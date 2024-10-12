@@ -90,15 +90,18 @@
         width: 10px;
         height: 10px;
         background-color: #f0f;
-        animation: confetti-fall 3s ease-out infinite;
+        animation: confetti-fall 6s ease-out 1;
       }
 
       @keyframes confetti-fall {
         0% {
           transform: translateY(-100vh) rotate(0deg);
         }
-        100% {
+        50% {
           transform: translateY(100vh) rotate(720deg);
+        }
+        100% {
+          transform: translateY(300vh) rotate(720deg);
         }
       }
     </style>
@@ -222,7 +225,7 @@
         }
       }
 
-      function createConfetti() {
+     function createConfetti() {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
         confetti.style.left = Math.random() * 100 + "vw";
@@ -237,7 +240,7 @@
         document.body.appendChild(confetti);
         setTimeout(() => {
           confetti.remove();
-        }, 5000);
+        }, 2000);
       }
     </script>
   </body>
