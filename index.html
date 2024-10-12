@@ -90,18 +90,19 @@
         width: 10px;
         height: 10px;
         background-color: #f0f;
-        animation: confetti-fall 6s ease-out 1;
+        border-radius: 50%;
+        opacity: 0;
       }
 
-      @keyframes confetti-fall {
+      @keyframes confetti-explosion {
         0% {
-          transform: translateY(-100vh) rotate(0deg);
-        }
-        50% {
-          transform: translateY(100vh) rotate(720deg);
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
         }
         100% {
-          transform: translateY(300vh) rotate(720deg);
+          transform: translate(var(--x-trajectory), var(--y-trajectory))
+            scale(0.5);
+          opacity: 0;
         }
       }
     </style>
@@ -219,17 +220,36 @@
     }
       function celebrateCompletion(checkbox) {
         if (checkbox.checked) {
-          for (let i = 0; i < 50; i++) {
-            createConfetti();
+          // Получаем чекбокс и его координаты
+          const rect = checkbox.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          // Генерируем конфетти
+          for (let i = 0; i < 100; i++) {
+            createConfetti(centerX, centerY);
           }
         }
       }
 
-     function createConfetti() {
+      function createConfetti(x, y) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+        // Устанавливаем начальные координаты (центр чекбокса)
+        confetti.style.left = `${x}px`;
+        confetti.style.top = `${y}px`;
+
+        // Случайные направления полета конфетти
+        const angle = Math.random() * 360;
+        const distance = Math.random() * 500 + 100; // Дальность полета
+        const xTrajectory = Math.cos(angle) * distance + "px";
+        const yTrajectory = Math.sin(angle) * distance + "px";
+
+        confetti.style.setProperty("--x-trajectory", xTrajectory);
+        confetti.style.setProperty("--y-trajectory", yTrajectory);
+
+        // Случайный цвет конфетти
         confetti.style.backgroundColor = [
           "#ff00ff",
           "#00ffff",
@@ -237,10 +257,18 @@
           "#ff0000",
           "#0000ff",
         ][Math.floor(Math.random() * 5)];
+
+        // Задаем случайную продолжительность и запускаем анимацию
+        confetti.style.animation = `confetti-explosion ${
+          Math.random() * 0.8 + 0.6
+        }s ease-out forwards`;
+
         document.body.appendChild(confetti);
+
+        // Удаляем элемент после завершения анимации
         setTimeout(() => {
           confetti.remove();
-        }, 2000);
+        }, 1500);
       }
     </script>
   </body>
